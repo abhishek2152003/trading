@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #263238;
+  --deep-navy: #0B2942;
+  --industrial-blue: #164E70;
+  --ocean-blue: #2878A8;
+  --soft-blue: #EAF4F8;
+  --warm-sand: #F4EBDD;
+  --spice-gold: #C88A27;
+  --white: #FFFFFF;
+  --charcoal: #263238;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-deep-navy: var(--deep-navy);
+  --color-industrial-blue: var(--industrial-blue);
+  --color-ocean-blue: var(--ocean-blue);
+  --color-soft-blue: var(--soft-blue);
+  --color-warm-sand: var(--warm-sand);
+  --color-spice-gold: var(--spice-gold);
+  --color-white: var(--white);
+  --color-charcoal: var(--charcoal);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-manrope);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0B2942;
+    --foreground: #EAF4F8;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+}
+
+.stat-number {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+}
+
+/* Fix browser autofill background on transparent inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--charcoal) !important;
+}

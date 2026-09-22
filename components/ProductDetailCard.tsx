@@ -1,0 +1,79 @@
+import Image from "next/image";
+
+export interface ProductSpec {
+  label: string;
+  value: string;
+}
+
+export interface ProductDetailProps {
+  title: string;
+  description: string;
+  specs: ProductSpec[];
+  imageSrc: string;
+}
+
+export default function ProductDetailCard({
+  title,
+  description,
+  specs,
+  imageSrc
+}: ProductDetailProps) {
+  return (
+    <div className="bg-white rounded-3xl shadow-[0_10px_40px_rgba(11,41,66,0.08)] hover:shadow-[0_20px_50px_rgba(11,41,66,0.12)] transition-shadow duration-300 overflow-hidden flex flex-col md:flex-row w-full max-w-6xl mx-auto my-10 group">
+      {/* Product Image Side */}
+      <div className="w-full md:w-2/5 relative aspect-square md:aspect-auto overflow-hidden">
+        <Image 
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 40vw"
+        />
+        {/* Subtle overlay to blend the image edge into the card */}
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/40 to-transparent md:bg-gradient-to-r"></div>
+        
+        {/* Quality Badge */}
+        <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-white flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span className="text-xs font-bold text-deep-navy uppercase tracking-wider">Export Quality</span>
+        </div>
+      </div>
+
+      {/* Product Details Side */}
+      <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-deep-navy mb-4">
+          {title}
+        </h2>
+        <div className="w-16 h-1.5 bg-spice-gold rounded-full mb-6"></div>
+        
+        <p className="text-charcoal/80 text-lg leading-relaxed mb-10">
+          {description}
+        </p>
+        
+        <div className="bg-soft-blue/50 p-6 md:p-8 rounded-2xl border border-soft-blue">
+          <h3 className="font-bold text-industrial-blue uppercase tracking-wider text-sm mb-5 flex items-center">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+            Specifications
+          </h3>
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 text-sm md:text-base">
+            {specs.map((spec, idx) => (
+              <div key={idx} className="flex flex-col border-l-2 border-spice-gold/50 pl-4">
+                <dt className="text-gray-500 font-medium mb-1 text-xs uppercase tracking-wide">{spec.label}</dt>
+                <dd className="font-bold text-deep-navy">{spec.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <button className="w-full sm:w-auto bg-industrial-blue hover:bg-ocean-blue text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            Request Quote
+          </button>
+          <button className="w-full sm:w-auto bg-transparent border-2 border-industrial-blue text-industrial-blue hover:bg-industrial-blue hover:text-white font-bold py-4 px-10 rounded-xl transition-all duration-300">
+            Download PDF Specs
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
