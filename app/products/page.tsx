@@ -26,7 +26,6 @@ export default function ProductsPage() {
       <div className="px-4 sm:px-6 lg:px-8 pb-20">
         <ProductDetailCard 
           title="Black Raisin"
-          description="We have been able to offer Black Raisins. These raisins are properly cleaned, dried and processed by our experts, after procuring from reliable agro vendors. All our raisins are free from fat and are considered as a good source of fiber and antioxidants. To meet the diverse requirements of the clients, we offer these superior quality Black Raisins in packs of variegated quantities at market leading rates."
           specs={blackRaisinSpecs}
           imageSrc="https://images.unsplash.com/photo-1599908867568-d05c68f2f211?q=80&w=1973&auto=format&fit=crop"
         />

@@ -7,14 +7,12 @@ export interface ProductSpec {
 
 export interface ProductDetailProps {
   title: string;
-  description: string;
   specs: ProductSpec[];
   imageSrc: string;
 }
 
 export default function ProductDetailCard({
   title,
-  description,
   specs,
   imageSrc
 }: ProductDetailProps) {
@@ -44,12 +42,9 @@ export default function ProductDetailCard({
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-deep-navy mb-4">
           {title}
         </h2>
-        <div className="w-16 h-1.5 bg-spice-gold rounded-full mb-6"></div>
+        <div className="w-16 h-1.5 bg-spice-gold rounded-full mb-8"></div>
         
-        <p className="text-charcoal/80 text-lg leading-relaxed mb-10">
-          {description}
-        </p>
-        
+
         <div className="bg-soft-blue/50 p-6 md:p-8 rounded-2xl border border-soft-blue">
           <h3 className="font-bold text-industrial-blue uppercase tracking-wider text-sm mb-5 flex items-center">
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>

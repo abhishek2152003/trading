@@ -18,8 +18,16 @@ export default function ContactUs() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    alert("Thank you for your message! Our export specialists will get back to you shortly.");
+    
+    const { firstName, lastName, email, phone, message } = formData;
+    const subject = encodeURIComponent(`New Contact Request from ${firstName} ${lastName}`);
+    const body = encodeURIComponent(
+      `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+    );
+    
+    // Open the default email client
+    window.location.href = `mailto:info@globalspiceexports.com?subject=${subject}&body=${body}`;
+    
     setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
   };
 
